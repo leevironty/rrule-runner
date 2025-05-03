@@ -1,0 +1,38 @@
+[project]
+name = "rrule-runner"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "python-dateutil>=2.9.0.post0",
+]
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1.400",
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.26.0",
+    "ruff>=0.11.8",
+]
+
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [ "ALL" ]
+ignore = [
+    "Q003",   # Handled by the formatter
+    "Q000",   # Handled by the formatter
+    "ISC001", # handled by the formatter
+    "COM812", # handled by the formatter
+    "D203",   # one-blank-line-before-class (incompatible with D211).
+    "D213",   # multi-line-summary-second-line (incompatible with D212).
+]
+[tool.ruff.lint.pycodestyle]
+max-line-length = 88
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+quote-style = "single"
+skip-magic-trailing-comma = false
