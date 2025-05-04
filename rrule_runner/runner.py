@@ -37,9 +37,9 @@ class RRuleSchedule:
 
         _timezone = timezone if timezone is not None else tz.tzlocal()
         anchor = datetime.datetime.now(_timezone).replace(microsecond=0)
-        if freq < rrule.SECONDLY:
+        if freq <= rrule.SECONDLY:
             anchor = anchor.replace(second=0)
-        if freq < rrule.MINUTELY:
+        if freq <= rrule.MINUTELY:
             anchor = anchor.replace(minute=0)
 
         # cache will be reset whenever we update the dtstart time
